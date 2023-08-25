@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Alzheimer's Disease</title>
+        <style>
+            body {
+              background-image: url('/static/alzheimer2.jpg');
+            }
+            h1 { 
+                color: white;
+            }
+            </style> 
+    </head>
+    <body>
+    <h1> We Have The Predicted Result For Your Uploaded MRI Here </h1>
+    {% if text == "No File Selected" %}
+        <h1> Your Predictions Will Appear Here. Please Use Home Page To Upload MRI </h1>
+    {% elif text == "NonDemented" %}
+        <h3> 
+            Our AI Model predicts that this is a {{ text }} case. This patient does not have Alzheimer's Disease yet and regular checkups are recommended if there are other risk factors involved.
+        </h3>
+    {% elif text == "VeryMildDemented" %}
+        <h3> 
+            Our AI Model predicts that this is a {{ text }} case. It is not too late to begin advanced treatment to slow
+            down the progression of the disease so that the patient may live a normal life for a longer period of time.
+        </h3>
+    {% elif text == "MildDemented" %}
+        <h3> 
+            Our AI Model predicts that this is a {{ text }} case. It is vital to begin advanced treatment immediately to slow down the progression
+            of the disease so that the patient may live a normal life for a longer period of time.
+        </h3>
+    {% elif text == "ModerateDemented" %}
+        <h3> 
+            Our AI Model predicts that this is a {{ text }} case. The patient needs immediate treatment to employ palliative care and
+            at least basic remedial measures for the patient. 
+        </h3>
+    {% endif %}
+    </body>
+</html>
